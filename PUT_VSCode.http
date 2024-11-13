@@ -1,0 +1,173 @@
+
+@IPAddressMaster = 192.168.1.15
+
+@IPAddressSlave = 192.168.1.20
+
+###
+
+
+PUT http://{{IPAddressMaster}}/api/v1/files/sd/
+Accept: */*
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Type: multipart/form-data; boundary=123456789
+
+--123456789
+Content-Disposition: form-data; name="filename"; filename="index.html"
+Content-Type: application/octet-stream
+
+< ./Master/index.html
+--123456789--
+ 
+ 
+
+###
+
+
+
+PUT http://{{IPAddressMaster}}/api/v1/files/sd/
+Accept: */*
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Type: multipart/form-data; boundary=123456789
+
+--123456789
+Content-Disposition: form-data; name="filename"; filename="index.html"
+Content-Type: application/octet-stream
+
+< ./Master/index.html
+--123456789--
+ 
+ 
+
+###
+
+
+PUT http://{{IPAddressMaster}}/api/v1/files/sd/
+Accept: */*
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Type: multipart/form-data; boundary=123456789
+
+--123456789
+Content-Disposition: form-data; name="filename"; filename="index.js"
+Content-Type: application/octet-stream
+
+< ./Master/index.js
+--123456789--
+ 
+ 
+
+###
+PUT http://{{IPAddressSlave}}/api/v1/files/sd/
+Accept: */*
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Type: multipart/form-data; boundary=123456789
+
+--123456789
+Content-Disposition: form-data; name="filename"; filename="index.js"
+Content-Type: application/octet-stream
+
+< ./Slave/index.js
+--123456789--
+ 
+ 
+
+###
+
+
+PUT http://{{IPAddressMaster}}/api/v1/files/sd/
+Accept: */*
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Type: multipart/form-data; boundary=123456789
+
+--123456789
+Content-Disposition: form-data; name="filename"; filename="autorun.brs"
+Content-Type: application/octet-stream
+
+< ./Master/autorun.brs
+--123456789--
+ 
+
+###
+
+
+
+PUT http://{{IPAddressSlave}}/api/v1/files/sd/
+Accept: */*
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Type: multipart/form-data; boundary=123456789
+
+--123456789
+Content-Disposition: form-data; name="filename"; filename="index.html"
+Content-Type: application/octet-stream
+
+< ./Slave/index.html
+--123456789--
+ 
+ 
+
+###
+
+
+
+PUT http://{{IPAddressSlave}}/api/v1/files/sd/
+Accept: */*
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Type: multipart/form-data; boundary=123456789
+
+--123456789
+Content-Disposition: form-data; name="filename"; filename="index.js"
+Content-Type: application/octet-stream
+
+< ./Slave/index.js
+--123456789--
+ 
+ 
+
+###
+
+
+PUT http://{{IPAddressSlave}}/api/v1/files/sd/
+Accept: */*
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Type: multipart/form-data; boundary=123456789
+
+--123456789
+Content-Disposition: form-data; name="filename"; filename="autorun.brs"
+Content-Type: application/octet-stream
+
+< ./Master/autorun.brs
+--123456789--
+ 
+
+ 
+
+###
+
+PUT http://{{IPAddressMaster}}/api/v1/control/reboot
+
+
+###
+
+
+
+PUT http://{{IPAddressSlave}}/api/v1/control/reboot
+
+
+###
+
+### 1 OFF ###
+GET http://192.168.1.47/netio.cgi?pass=admin&output1=0
+
+
+### 1 ON ### 
+GET http://192.168.1.47/netio.cgi?pass=admin&output1=1
+
+
+###  ###
